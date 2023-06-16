@@ -1,7 +1,7 @@
-Package: SBMTA
+Package: ssTA
 Version: 0.1.0
 Date: 2023-15-06
-Title: Sequence Based Model Trait Association
+Title: Shape Space Trait Association
 Authors: c(person("Chris", "Anderson", email = christopher_anderson@urmc.rochester.edu),
 			person("William", "Bender", email = william_bender@urmc.rochester.edu))
 Maintainer: William Bender <william_bender@urmc.rochester.edu>

@@ -1,0 +1,10 @@
+Package: SBMTA
+Version: 0.1.0
+Date: 2023-15-06
+Title: Sequence Based Model Trait Association
+Authors: c(person("Chris", "Anderson", email = christopher_anderson@urmc.rochester.edu),
+			person("William", "Bender", email = william_bender@urmc.rochester.edu))
+Maintainer: William Bender <william_bender@urmc.rochester.edu>
+Depends R (>= RStudio 2021.09.2+382)
+Description: aligns Amino Acid sequences, creates a distance matrix of antigenic distance between sequences,
+performs multidimensional scaling on the distance matrix, and performs statistical test for association between a trait and the distance matrix.

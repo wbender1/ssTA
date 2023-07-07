@@ -12,5 +12,7 @@ DM("Aligned_Seqs.fasta", 575, "~/ssTA/tutorial/DM/tutorial")
 setwd("~/ssTA/tutorial/DM/")
 SBM("tutorial_DM.csv", "~/ssTA/tutorial/mySBM")
 
+library(Rtsne)
+library(vegan)
 myPheno<-read.csv("~/ssTA/tutorial/myPheno.csv")
 TA(myPheno$subtype, "~/ssTA/tutorial/tutorial", "tutorial", "tutorial")

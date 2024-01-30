@@ -3,10 +3,12 @@ devtools::install_github("wbender1/ssTA")
 #Install required packages if necessary
 install.packages("seqinr")
 install.packages("bioseq")
-install.packages("msa")
 install.packages("stringdist")
 install.packages("Rtsne")
 install.packages("vegan")
+if (!requireNamespace("BiocManager", quietly=TRUE))
+install.packages("BiocManager")
+BiocManager::install("msa")
 library("ssTA")
 setwd("~/ssTA/tutorial")
 #############################################################################################################################################################################################################################################################

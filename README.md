@@ -11,7 +11,7 @@ To install required packages if necessary:
 - install.packages("stringdist")
 - install.packages("Rtsne")
 - install.packages("vegan")
--if (!requireNamespace("BiocManager", quietly=TRUE))
+- if (!requireNamespace("BiocManager", quietly=TRUE))
   install.packages("BiocManager")
   BiocManager::install("msa")
 

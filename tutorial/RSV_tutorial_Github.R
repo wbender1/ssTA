@@ -1,5 +1,12 @@
 #ssTA Tutorials
 devtools::install_github("wbender1/ssTA")
+#Install required packages if necessary
+install.packages("seqinr")
+install.packages("bioseq")
+install.packages("msa")
+install.packages("stringdist")
+install.packages("Rtsne")
+install.packages("vegan")
 library("ssTA")
 setwd("~/ssTA/tutorial")
 #############################################################################################################################################################################################################################################################

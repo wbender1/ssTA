@@ -4,16 +4,16 @@
 \alias{TA}
 \title{Trait Association}
 \usage{
-TA(trait_col_num, output_path, Plot_name, Stats_name)
+TA(name_column_number, trait_column_number, output_path, Stats_name)
 }
 \arguments{
+\item{name_column_number}{column number which contains names of sequences}
+
+\item{trait_column_number}{column number which contains a trait to be analyzed}
+
 \item{output_path}{directory path for output files}
 
-\item{Plot_name}{name for output plots}
-
 \item{Stats_name}{name for output stats file}
-
-\item{trait_col}{column name which contains a trait to be analyzed}
 }
 \value{
 A .csv stats file containing anosim, adonis2, bDis.perm, and bDis.anova pvalues. A pdf file containing an Anosim plot. A pdf file containing a bDisper sdEllipse.
@@ -27,6 +27,6 @@ Required packages: Rtsne, vegan
 setwd("~/ssTA/tutorial/")
 myPheno<-read.csv("myPheno.csv")
 setwd("DM_GOOD")
-myStats <- TA(2, "../Output_GOOD/", "PracticeSeqs_GOOD", "PracticeSeqs_GOOD")
+myStats <- TA(1, 2, "../", "PracticeSeqs_GOOD")
 setwd("..")
 }

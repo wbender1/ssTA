@@ -1,16 +1,6 @@
 #ssTA Tutorials
-devtools::install_github("wbender1/ssTA")
-#Install required packages if necessary
-install.packages("seqinr")
-install.packages("bioseq")
-install.packages("stringdist")
-install.packages("Rtsne")
-install.packages("vegan")
-if (!requireNamespace("BiocManager", quietly=TRUE))
-install.packages("BiocManager")
-BiocManager::install("msa")
 library("ssTA")
-setwd("~/ssTA/tutorial")
+setwd("~/ssTA_2.0/tutorial")
 #############################################################################################################################################################################################################################################################
 #Tutorial with GOOD Nucleic Acid sequences. All sequences pass through QC function.
 #############################################################################################################################################################################################################################################################
@@ -39,7 +29,7 @@ myPheno<-read.csv("myPheno.csv")
 setwd("DM_GOOD")
 
 #Perform Trait Association to calculate anosim, adonis2, bDis.perm, and bDis.anova pvalues.
-myStats <- TA(2, "../Output_GOOD/", "PracticeSeqs_GOOD", "PracticeSeqs_GOOD")
+myStats <- TA(1, 2, "../Output_GOOD/", "PracticeSeqs_GOOD")
 
 #Return to parent directory
 setwd("..")
@@ -71,7 +61,7 @@ myPheno<-read.csv("myPheno.csv")
 setwd("DM_BAD")
 
 #Perform Trait Association to calculate anosim, adonis2, bDis.perm, and bDis.anova pvalues.
-myStats <- TA(2, "../Output_BAD/", "PracticeSeqs_BAD", "PracticeSeqs_BAD")
+myStats <- TA(1, 2, "../Output_BAD/", "PracticeSeqs_BAD", "PracticeSeqs_BAD")
 
 #Return to parent directory
 setwd("..")
@@ -104,8 +94,49 @@ myPheno<-read.csv("myPheno.csv")
 setwd("DM_MultiLengths")
 
 #Perform Trait Association to calculate anosim, adonis2, bDis.perm, and bDis.anova pvalues.
-myStats <- TA(2, "../Output_MultiLengths/", "PracticeSeqs_MultiLengths", "PracticeSeqs_MultiLengths")
+myStats <- TA(1, 2, "../Output_MultiLengths/", "PracticeSeqs_MultiLengths", "PracticeSeqs_MultiLengths")
 
 #Return to parent directory
 setwd("..")
+#############################################################################################################################################################################################################################################################
+#Tutorial with Multiple Groups of Sequences that share Trait to be Analyzed
+#############################################################################################################################################################################################################################################################
+#Create a vector containing all the lengths of sequences that are contained in the input fasta file.
+myLengths <- c(1725)
+myLengths1 <- c(1730)
+
+#Perform QC to pull all sequences of previously recorded lengths and remove any sequences which has a character or symbol other than "ATCG".
+myQCSeqs <- QC("PracticeSeqs_NA_GOOD.fasta", myLengths, "Output_GOOD/PracticeSeqs_Cleaned_GOOD.fasta")
+myQCSeqs1 <- QC("PracticeSeqs_NA_GOOD1.fasta", myLengths1, "Output_GOOD/PracticeSeqs_Cleaned_GOOD1.fasta")
+
+#Perform Translate to translate Nucleic Acid sequences into Amino Acid sequences if necessary.
+myTranslatedSeqs <- Translate("Output_GOOD/PracticeSeqs_Cleaned_GOOD.fasta", "Output_GOOD/PracticeSeqs_Translated_GOOD.fasta")
+myTranslatedSeqs1 <- Translate("Output_GOOD/PracticeSeqs_Cleaned_GOOD1.fasta", "Output_GOOD/PracticeSeqs_Translated_GOOD1.fasta")
+
+#Perform Align to align sequences to the same length if necessary.
+myAlignedSeqs <- Align("Output_GOOD/PracticeSeqs_Translated_GOOD.fasta", "Output_GOOD/PracticeSeqs_Aligned_GOOD.fasta")
+myAlignedSeqs1 <- Align("Output_GOOD/PracticeSeqs_Translated_GOOD1.fasta", "Output_GOOD/PracticeSeqs_Aligned_GOOD1.fasta")
+
+#Perform Distance Matrix to calculate the Antigenic Hamming Distances between our sequences and store the values as a distance matrix.
+myDM <- DM("Output_GOOD/PracticeSeqs_Aligned_GOOD.fasta", 575, "DM_GOOD/PracticeSeqs_GOOD")
+myDM1 <- DM("Output_GOOD/PracticeSeqs_Aligned_GOOD1.fasta", 575, "DM_GOOD/PracticeSeqs_GOOD1")
+
+#Perform Distance Matrix Dimension Reduction to reduce the Distance Matrix into a set of coordinates.
+myDF <- DM_DR("DM_GOOD/PracticeSeqs_GOOD_DM.csv", "Output_GOOD/PracticeSeqs_points_GOOD")
+myDF1 <- DM_DR("DM_GOOD/PracticeSeqs_GOOD1_DM.csv", "Output_GOOD/PracticeSeqs_points_GOOD1")
+
+#Read in Phenotype data.
+myPheno<-read.csv("myPheno.csv")
+
+#Change to the directory which contains Distance Matrix/Matrices.
+setwd("DM_GOOD")
+
+#Perform Trait Association to calculate anosim, adonis2, bDis.perm, and bDis.anova pvalues.
+myStats <- TA(1, 2, "../Output_GOOD/", "PracticeSeqs_GOOD")
+
+#Return to parent directory
+setwd("..")
+
+
+
 

@@ -4,7 +4,7 @@
 ![GitHub](https://img.shields.io/badge/license-MIT-green)
 
 An algorithm for determining association between viral-gene coding-sequences and categorical traits, such as mild/severe disease. 
-Utilized for peer-reviewed publication: https://bmcmedgenomics.biomedcentral.com/articles/10.1186/s12920-024-01930-7
+Utilized for peer-reviewed publication: https://bmcmedgenomics.biomedcentral.com/articles/10.1186/s12920-024-01930-7  
 Also includes functions for performing Antigenic Cartography (Sequences-Based Mapping).  
 https://pmc.ncbi.nlm.nih.gov/articles/PMC5809904/
 

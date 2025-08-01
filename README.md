@@ -14,8 +14,7 @@ https://pmc.ncbi.nlm.nih.gov/articles/PMC5809904/
 - **Alignment**: Aligns Amino Acids
 - **Antigenic Hamming Distances**: Calculates the Antigenic Hamming Distances between sequences and produces a distance matrix
 - **Principal Coordinate Analysis (PCoA)**: Performs a dimension reduction on distance matrix to produce lower-dimensional data
-- **Trait Association**: Determines association between categorical trait and Antigenic Hamming Distance matrix.  
-Produces a:
+- **Trait Association**: Determines association between categorical trait and Antigenic Hamming Distance matrix, ouputting several files.  
   - Stats file containing anosim, adonis2, bDis.perm, and bDis.anova pvalues.
   - Pdf file containing an Anosim plot.
   - Pdf file containing a bDisper sdEllipse.

@@ -5,8 +5,8 @@
 
 An algorithm for determining association between viral-gene coding-sequences and categorical traits, such as mild/severe disease. 
 Utilized for peer-reviewed publication: https://bmcmedgenomics.biomedcentral.com/articles/10.1186/s12920-024-01930-7  
-Also includes functions for performing Antigenic Cartography (Sequences-Based Mapping).  
-https://pmc.ncbi.nlm.nih.gov/articles/PMC5809904/
+
+Also includes functions for performing Antigenic Cartography (Sequences-Based Mapping): https://pmc.ncbi.nlm.nih.gov/articles/PMC5809904/
 
 ## ✨ Features
 - **Quality Control**: Cleans sequences to desired Nucleic Acid lengths
@@ -19,6 +19,7 @@ https://pmc.ncbi.nlm.nih.gov/articles/PMC5809904/
   - Pdf file containing an Anosim plot.
   - Pdf file containing a bDisper sdEllipse.
 
+## 🛠️ Project Structure
 
 
 
